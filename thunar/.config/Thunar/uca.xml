@@ -1,0 +1,49 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1540877965637339-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>calibre-gui</icon>
+	<name>Add to Library</name>
+	<unique-id>1541381568747859-1</unique-id>
+	<command>calibre --detach %f</command>
+	<description></description>
+	<patterns>*.epub</patterns>
+	<other-files/>
+</action>
+<action>
+	<icon>image</icon>
+	<name>Convert...</name>
+	<unique-id>1542019704327009-1</unique-id>
+	<command>thunar-image-convert %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon>sublime-text</icon>
+	<name>Open in Sublime Text</name>
+	<unique-id>1541347799132119-1</unique-id>
+	<command>subl %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>image</icon>
+	<name>Set as wallpaper</name>
+	<unique-id>1541318347319061-1</unique-id>
+	<command>thunar-set-wallpaper %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+</actions>

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+outs=( gif jpg png )
+
+file=$1
+
+filename="${1##*/}"
+name="${filename%.*}"
+ext="${filename##*.}"
+
+# TODO: normalize extension
+
+# remove current file extension from available output formats
+outs_length=${#outs[*]}
+for (( i=0; i<=$(($outs_length -1 )); i++ ))
+do
+	if [ ${outs[$i]} == $ext ]; then
+		unset 'outs[$i]'
+	fi
+done
+
+# ask output format
+out=$(zenity --list --text="Convert <b>$ext</b> file to:" --column "Format" ${outs[@]})
+
+# continue if user has made a decision
+if [ ! -z "$out" ];then
+	case "$out" in
+		"gif" | "jpg" | "png")
+			convert $file $(pwd)/$name.$out
+			;;
+		*)
+			;;
+	esac
+fi
+

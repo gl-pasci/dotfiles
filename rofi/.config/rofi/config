@@ -1,0 +1,5 @@
+rofi.font:          	DejaVu Sans Mono 8
+rofi.fullscreen:		false
+rofi.lines:         	5
+rofi.modi:          	run
+rofi.show-icons:    	false

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+RESOLUTION=`xrandr --screen 0 | grep \* | awk '{print $1}'`
+WALLPAPERS_FOLDER=~/Images/wallpapers/
+FILENAME="${1##*/}"
+WALLPAPER=$WALLPAPERS_FOLDER$FILENAME
+
+# check if we are alerady browsing the wallpapers folder
+if [ ! $1 == $WALLPAPER ]; then
+	# resize to display resolution
+	convert $1 -resize $RESOLUTION^ -gravity center -extent $RESOLUTION $WALLPAPER
+	feh --bg-scale $WALLPAPER
+
+	zenity --question --text="Do you want to delete the original file?" --no-wrap && gio trash $1
+else
+	feh --bg-scale $WALLPAPER
+fi

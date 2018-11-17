@@ -1,0 +1,35 @@
+# Display
+
+"xbacklight -inc 10"
+XF86MonBrightnessUp
+
+"xbacklight -set 100 -time 500"
+Shift + XF86MonBrightnessUp
+
+"xbacklight -dec 10"
+XF86MonBrightnessDown
+
+"xbacklight -set 0 -time 500"
+Shift + XF86MonBrightnessDown
+
+# Sound
+
+"amixer set Master toggle"
+XF86AudioMute
+
+"amixer set Capture toggle"
+XF86AudioMicMute
+
+"amixer set Master 2dB+"
+XF86AudioRaiseVolume
+
+"amixer set Master 2dB-"
+XF86AudioLowerVolume
+
+# Misc
+
+"vga-hotplug"
+XF86Display
+
+"toggle-trackpad"
+XF86ScreenSaver
