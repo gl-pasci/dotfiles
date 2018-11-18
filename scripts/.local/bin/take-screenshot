@@ -1,0 +1,3 @@
+#!/bin/sh
+
+scrot ~/Images/screenshots/%d-%m-%Y-%T.png --exec 'notify-send "Screenshot saved" "$n"'

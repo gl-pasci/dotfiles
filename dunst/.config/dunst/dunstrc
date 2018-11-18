@@ -2,7 +2,7 @@
 
     monitor                 = 0
     follow                  = none
-    geometry                = "x1"
+    geometry                = "685x1+341-0"
     indicate_hidden         = yes
     shrink                  = no
     transparency            = 0
@@ -11,7 +11,7 @@
     padding                 = 2
     horizontal_padding      = 8
     frame_width             = 0
-    frame_color             = "#aaaaaa"
+    frame_color             = "#212121"
     separator_color         = auto
     sort                    = no
     idle_threshold          = 120
@@ -58,21 +58,21 @@
 
 [urgency_low]
 
-    background              = "#CCCCCC"
-    foreground              = "#333333"
+    background              = "#212121"
+    foreground              = "#EAEFDD"
     timeout                 = 5
     #icon                   = /path/to/icon
 
 [urgency_normal]
 
-    background              = "#CCCCCC"
-    foreground              = "#333333"
+    background              = "#212121"
+    foreground              = "#EAEFDD"
     timeout                 = 10
     #icon                   = /path/to/icon
 
 [urgency_critical]
 
-    background              = "#CCCCCC"
-    foreground              = "#333333"
+    background              = "#212121"
+    foreground              = "#EAEFDD"
     timeout                 = 0
     #icon                   = /path/to/icon

@@ -33,3 +33,6 @@ XF86Display
 
 "toggle-trackpad"
 XF86ScreenSaver
+
+"take-screenshot"
+Shift + Print
