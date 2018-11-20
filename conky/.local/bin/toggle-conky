@@ -1,13 +1,11 @@
 #!/usr/bin/env sh
 
-if pgrep -u $UID -x conky >/dev/null
-then
-	killall -q conky
+if pgrep -u $UID -x conky >/dev/null; then
+  killall -q conky
 else
-	conky -dq -c ~/.config/conky/conkyrc
-	
-#	for config in ~/.config/conkyrc.d/*
-#	do
-#		conky -dq -c $(readlink -f "$config")
-#	done
+  if [[ $1 == '--fast' ]]; then
+    conky -dq -c ~/.config/conky/conkyrc.fast
+  else
+    conky -dq -c ~/.config/conky/conkyrc
+  fi
 fi

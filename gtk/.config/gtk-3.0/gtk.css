@@ -7,3 +7,6 @@ vte-terminal {
   padding: 18px;
 }
 
+.sidebar .view{
+  background-color: #282923;
+}

@@ -9,15 +9,18 @@ hide_edge_borders smart
 
 floating_modifier $mod
 
+focus_on_window_activation focus
+
 gaps inner 16
 gaps outer 0
 gaps bottom 16
 
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
-bindsym $mod+m exec --no-startup-id thunar
-bindsym $mod+b exec --no-startup-id firefox
-bindsym $mod+d exec --no-startup-id rofi -show run -theme thinkpad
-bindsym $mod+s exec --no-startup-id toggle-conky
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec thunar
+bindsym $mod+b exec firefox
+bindsym $mod+d exec rofi -show run -theme thinkpad
+bindsym $mod+p exec i3-sensible-terminal -e 'python -i'
+
 bindsym $mod+Shift+q kill
 
 bindsym $mod+Left focus left
@@ -30,7 +33,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+e layout toggle split
+bindsym $mod+s layout toggle split
 bindsym $mod+h split h
 bindsym $mod+v split v
 
@@ -77,17 +80,34 @@ bindsym $mod+Shift+r restart
 
 bindsym $mod+Shift+e exec i3-msg exit
 
-mode "resize" {
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+set $resize RESIZE
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+mode "$resize" {
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Left resize shrink width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "$resize"
+
+set $move MOVE
+
+mode "$move" {
+    bindsym Up move up 10 px
+    bindsym Right move right 10 px
+    bindsym Down move down 10 px
+    bindsym Left move left 10 px
+	
+	bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+m mode "$move"
 
 exec_always --no-startup-id $HOME/.local/bin/start-polybar

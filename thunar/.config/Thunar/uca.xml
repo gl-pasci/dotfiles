@@ -29,6 +29,15 @@
 	<image-files/>
 </action>
 <action>
+	<icon>drive-removable-media</icon>
+	<name>Mount image</name>
+	<unique-id>1542517299963000-1</unique-id>
+	<command>udisksctl loop-setup -r -f %f</command>
+	<description>Mount iso image</description>
+	<patterns>*.iso</patterns>
+	<other-files/>
+</action>
+<action>
 	<icon>sublime-text</icon>
 	<name>Open in Sublime Text</name>
 	<unique-id>1541347799132119-1</unique-id>

@@ -34,5 +34,11 @@ XF86Display
 "toggle-trackpad"
 XF86ScreenSaver
 
+"toggle-conky"
+XF86Launch1
+
+"toggle-conky --fast"
+Shift + XF86Launch1
+
 "take-screenshot"
 Shift + Print

@@ -3,20 +3,20 @@ conky.config = {
     background                      = true,
     border_width                    = 0,
     cpu_avg_samples                 = 2,
-    default_bar_height              = 3,
-    default_bar_width               = 190,
-    default_color                   = 'EAEFDD',
+    default_bar_height              = 2,
+    default_bar_width               = 207,
+    default_color                   = '999999',
     double_buffer                   = true,
     draw_borders                    = false,
     draw_graph_borders              = false,
     draw_outline                    = false,
     draw_shades                     = false,
     use_xft                         = true,
-    font                            = 'artwiz lemon:size=9',
+    font                            = 'artwiz lemon:size=8',
     gap_x                           = 0,
     gap_y                           = 0,
-    minimum_height                  = 64,
-    maximum_height                  = 64,
+    minimum_height                  = 0,
+    maximum_height                  = 0,
     minimum_width                   = 1366,
     maximum_width                   = 1366,
     net_avg_samples                 = 2,
@@ -27,12 +27,12 @@ conky.config = {
     own_window                      = true,
     own_window_transparent          = false,
     own_window_argb_visual          = true,
-    own_window_argb_value           = 240,
+    own_window_argb_value           = 255,
     own_window_colour               = '1D1E19',
     own_window_type                 = 'panel',
     own_window_class                = 'Conky',
     stippled_borders                = 0,
-    update_interval                 = 1.0,
+    update_interval                 = 0.5,
     uppercase                       = false,
     use_spacer                      = 'none',
     show_graph_scale                = false,
@@ -40,12 +40,32 @@ conky.config = {
 }
 
 conky.text = [[
+${goto 16}${font Wuncon Siji}${font}${voffset -1}${exec cat /proc/cpuinfo | grep -m 1 'model name' | awk '{print $6}'} @ ${freq_g 0}GHz${goto 241}${voffset -4}${font Wuncon Siji}${font}${mem}/${memmax}${goto 466}${voffset -3}${font Wuncon Siji}${font}${voffset -1}${fs_used}/${fs_size}${goto 691}${voffset -3}${font Wuncon Siji}${font}${voffset -1}${nodename} @ ${addr wlp3s0}${goto 916}${voffset -4}${font Wuncon Siji}${font}Battery is ${battery}${goto 1141}${voffset -3}${font Wuncon Siji}${font}${voffset -1}${uptime}
+${goto 16}${voffset 4}${cpugraph cpu0 16,48 282922 82B1FF -t}${offset 6}${cpugraph cpu0 16,48 282922 82B1FF -t}${offset 5}${cpugraph cpu0 16,48 282922 82B1FF -t}${offset 6}${cpugraph cpu0 16,48 282922 82B1FF -t}${offset 16}${memgraph 16,209 282922 82B1FF -t}${offset 16}${diskiograph 16,209 282922 82B1FF -t}${offset 16}${upspeedgraph wlp3s0 16,101 282922 82B1FF -t}${offset 7}${downspeedgraph wlp3s0 16,101 282922 82B1FF -t}${offset 16}${execgraph conky-battery-capacity 16,209 282922 82B1FF -t}${offset 16}
+${goto 16}${font Wuncon Siji}${font}${color 282922}${execbar 0,190 echo 0}${color}${offset -190}${color 666666}${execbar 2,190 conky-fan-speed}${color}${goto 240}${voffset -4}${font Wuncon Siji}${font}${color 282922}${execbar 0,191 echo 0}${color}${offset -191}${color 666666}${swapbar 2,191}${color}${goto 467}${voffset -4}${font Wuncon Siji}${font}${color 282922}${execbar 0,189 echo 0}${color}${offset -189}${color 666666}${fs_bar 2,189}${color}${goto 692}${voffset -4}${font Wuncon Siji}${font}${color 282922}${execbar 0,189 echo 0}${color}${offset -189}${color 666666}${wireless_link_bar 2,189 wlp3s0}${color}${offset 16}${voffset -4}${font Wuncon Siji}${font}${exec conky-power-usage}W
+${goto 35}${voffset -10}${color 1D1E19}${execbar 2,190 echo 0}${color}${goto 259}${color 1D1E19}${execbar 2,191 echo 0}${color}${goto 486}${color 1D1E19}${execbar 2,189 echo 0}${color}${goto 711}${color 1D1E19}${execbar 2,189 echo 0}${color}
+${voffset -55}${alignr 1145}${cpu 0}%
+${voffset -10}${alignr 920}${memperc}%
+${voffset -10}${alignr 695}${fs_used_perc}%
+${voffset 32}
+]]
+
+--[[ nice horizontal bar
+${color 282922}${execbar 0,207 echo 0}${color}${offset -207}${color 82B1FF}${execbar cat /proc/acpi/ibm/fan | grep speed | cut -d: -f2 | xargs | awk '{printf "%i",$1/4100*100}'}${color}${offset 18}${color 282922}${execbar 0,207 echo 0}${color}${offset -207}${color 666666}${swapbar}${color}
+${goto 17}${voffset -10}${color 1D1E19}${execbar echo 0}${color}${offset 18}${color 1D1E19}${execbar echo 0}${color}
+]]
+
+--[[ pacman and aur icons 
+${voffset -3}${font Wuncon Siji}${font}${voffset -4}${font Wuncon Siji}${font}
+]]
+
+--[[conky.text = [[
 ${goto 15}${voffset 8}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${exec cat /proc/cpuinfo | grep -m 1 'model name' | awk '{print $6}'} @ ${freq_g 0}GHz${goto 182}${voffset -3}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${exec sensors | grep "Package id 0" | cut -d" " -f5 | cut -d+ -f2}${goto 348}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${nodename} @ ${addr wlp3s0}${goto 564}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${mem}/${memmax}${goto 731}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${fs_used}/${fs_size}${goto 895}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${uptime}
 ${goto 15}${voffset 4}${goto 182}${voffset -3}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${exec cat /proc/acpi/ibm/fan | grep speed | cut -d: -f2 | xargs} RPM${goto 348}${voffset -3}${color 999999}${font Wuncon Siji}${font}${color}${upspeedf wlp3s0}KiB${goto 452}${voffset -3}${color 999999}${font Wuncon Siji}${font}${color}${downspeedf wlp3s0}KiB${goto 564}${color 686963}${swapbar 3,148}${color}${goto 730}${color 686963}${fs_bar 3,148}${color}${goto 896}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${battery}
-${goto 16}${voffset 4}${cpugraph cpu0 25,150 1D1E19 82B1FF -t}${offset 16}${execgraph "cat /proc/acpi/ibm/fan | grep speed | cut -d: -f2 | xargs | awk '{printf "%i",$1/4100*100}'" 25,150 1D1E19 82B1FF 100 -t}${offset 16}${upspeedgraph wlp3s0 25,96 1D1E19 82B1FF -t}${offset 8}${downspeedgraph wlp3s0 25,96 1D1E19 82B1FF -t}${offset 16}${memgraph 25,150 1D1E19 82B1FF -t -l}${offset 16}${diskiograph /dev/sda1 25,150 1D1E19 82B1FF -t -l}${offset 16}${color 999999}${font Wuncon Siji}${font}${color}${voffset 0}${battery_time}${goto 1063}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${color 686963}${execibar 1 amixer get Master | tail -1 | awk '{print$4}' | cut -d "[" -f2 | cut -d "]" -f1 | cut -d% -f1}${color}
+${goto 16}${voffset 4}${cpugraph cpu0 25,150 999999 82B1FF -t}${offset 16}${execgraph "cat /proc/acpi/ibm/fan | grep speed | cut -d: -f2 | xargs | awk '{printf "%i",$1/4100*100}'" 25,150 1D1E19 82B1FF 100 -t}${offset 16}${upspeedgraph wlp3s0 25,96 1D1E19 82B1FF -t}${offset 8}${downspeedgraph wlp3s0 25,96 1D1E19 82B1FF -t}${offset 16}${memgraph 25,150 1D1E19 82B1FF -t -l}${offset 16}${diskiograph /dev/sda1 25,150 1D1E19 82B1FF -t -l}${offset 16}${color 999999}${font Wuncon Siji}${font}${color}${voffset 0}${battery_time}${goto 1063}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${color 686963}${execibar 1 amixer get Master | tail -1 | awk '{print$4}' | cut -d "[" -f2 | cut -d "]" -f1 | cut -d% -f1}${color}
 ${goto 897}${voffset -22}${color 999999}${font Wuncon Siji}${font}${color}${execi 2 awk '{printf "%2.1f W",$1*10^-6}' /sys/class/power_supply/BAT0/power_now}${goto 1063}${voffset -2}${color 999999}${font Wuncon Siji}${font}${color}${voffset -1}${color 686963}${execibar 1 awk '{printf "%i",$1/4437*100}' /sys/class/backlight/intel_backlight/actual_brightness}${color}
-${image ~/.config/conky/arch.png -p 1320,48 -s 24x24}
-${voffset -22}
+${image ~/.config/conky/arch.png -p 1320,52 -s 24x24}
+${voffset -12}
 ]]
 
 --[[${image ~/.config/conky/thinkpad.png -p 1308,32 -s 43x42}]]
