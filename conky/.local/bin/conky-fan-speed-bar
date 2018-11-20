@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+cat /proc/acpi/ibm/fan | grep speed | cut -d: -f2 | xargs | awk '{printf "%i",$1/4100*100}'
