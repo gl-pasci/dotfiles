@@ -4,5 +4,5 @@ if [ $(cat /sys/class/drm/card0/card0-VGA-1/status) == 'disconnected' ];
 then
     xrandr --output VGA1 --off
 else
-    xrandr --output VGA1 --auto --left-of LVDS1
+    xrandr --output VGA1 --auto --above LVDS1
 fi

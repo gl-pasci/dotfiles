@@ -1,6 +1,6 @@
 [options]
 allow_bold				= true
-audible_bell			= false
+audible_bell			= true
 clickable_url			= true
 dynamic_title			= false
 font					= DejaVu Sans Mono 8
@@ -9,7 +9,7 @@ mouse_autohide			= false
 scroll_on_output		= false
 scroll_on_keystroke 	= true
 scrollback_lines		= -1
-urgent_on_bell 			= false
+urgent_on_bell 			= true
 hyperlinks				= true
 
 browser					= xdg-open

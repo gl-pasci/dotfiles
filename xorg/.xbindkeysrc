@@ -1,12 +1,12 @@
 # Display
 
-"xbacklight -inc 10"
+"xbacklight -inc 5"
 XF86MonBrightnessUp
 
 "xbacklight -set 100 -time 500"
 Shift + XF86MonBrightnessUp
 
-"xbacklight -dec 10"
+"xbacklight -dec 5"
 XF86MonBrightnessDown
 
 "xbacklight -set 0 -time 500"

@@ -9,3 +9,13 @@ alias restow='stow -R'
 alias service='sudo systemctl'
 alias unstow='stow -D'
 alias venv='python -m venv'
+alias devvm='cd ~/Development/dev-vm && vagrant up && vagrant ssh'
+
+function play() {
+    mpv --no-video --ytdl-format=worstaudio ytdl://ytsearch:"$@"
+}
+
+function take() {
+    mkdir $1
+    cd $1
+}

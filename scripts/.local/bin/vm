@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+cd ~/Development/dev-vm
+vagrant up && termite --exec="vagrant ssh"

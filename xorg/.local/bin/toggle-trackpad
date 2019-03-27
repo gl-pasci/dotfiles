@@ -1,8 +1,11 @@
 #!/bin/sh
 
-if [ $(xinput list-props 11 | grep "Device Enabled" | cut -d: -f2 | xargs) -eq 1 ]
+# get TrackPad id, it changes sometimes, don't ask me why
+ID=$(xinput --list | grep TouchPad | sed 's/.*id=\([0-9]*\).*/\1/')
+
+if [ $(xinput list-props $ID | grep "Device Enabled" | cut -d: -f2 | xargs) -eq 1 ]
 then
-    xinput disable 11
+    xinput disable $ID
 else
-    xinput enable 11
+    xinput enable $ID
 fi

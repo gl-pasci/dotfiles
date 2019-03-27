@@ -1,0 +1,89 @@
+#!/usr/bin/env sh
+
+# if no stdin exit
+[[ ! -t 0 ]] && exit 1
+
+stty -echo -icanon time 0 min 1
+
+WORK=25
+SHORT_BREAK=5
+LONG_BREAK=15
+
+HELP="Usage: pomo [options]
+
+  -S	Print current settings.
+  -h	Print this help message.
+"
+
+i=0
+count=1
+
+function clear_output() {
+	tput rc && tput ed
+}
+
+function finish() {
+	stty sane
+
+	clear_output
+	[ $i -gt 0 ] && printf "Bye\n"
+}
+trap finish SIGINT
+
+function handle_user_input() {
+	input_key=''
+	read input_key
+	case $input_key in
+	'')
+		;;
+	'q')
+		exit 0
+		;;
+	esac
+}
+
+tput sc
+
+while getopts :hS opt
+do
+	case "$opt" in
+		S)
+			echo settings
+			exit 0
+			;;
+		h|*)
+			echo "$HELP"
+			exit 0
+			;;
+	esac
+done
+
+while :
+do
+	let i++
+	mesg="Great! You can relax for %i'..."
+	
+	if [ $(( i % 8 )) -eq 0 ]
+	then
+		timer="$LONG_BREAK"
+	elif [ $(( i % 2 )) -eq 0 ]
+	then
+		timer="$SHORT_BREAK"
+	else
+		timer="$WORK"
+		mesg="%i' to next break"
+		let count++
+	fi
+
+	while [ $timer -gt 0 ]
+	do
+		clear_output
+		printf "$mesg" $timer
+		
+		handle_user_input
+		sleep 1m &
+		wait
+
+		let timer--
+	done
+done

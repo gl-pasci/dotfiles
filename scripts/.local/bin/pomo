@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# if no stdin exit
+[[ ! -t 0 ]] && exit 1
+
+START=$(date +%s)
+
+while :
+do
+	
+	read -t 1 -n 1 input
+	case $input in
+	'')
+		;;
+	'q')
+		exit 0
+		;;
+	esac
+done

@@ -60,14 +60,14 @@
 
     background              = "#212121"
     foreground              = "#EAEFDD"
-    timeout                 = 5
+    timeout                 = 3
     #icon                   = /path/to/icon
 
 [urgency_normal]
 
     background              = "#212121"
     foreground              = "#EAEFDD"
-    timeout                 = 10
+    timeout                 = 5
     #icon                   = /path/to/icon
 
 [urgency_critical]
