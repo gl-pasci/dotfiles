@@ -34,11 +34,11 @@ XF86Display
 "toggle-trackpad"
 XF86ScreenSaver
 
+"wifi-select"
+Shift + XF86Launch1
+
 "conky-toggle"
 XF86Launch1
-
-"conky-toggle --fast"
-Shift + XF86Launch1
 
 "take-screenshot"
 Shift + Print

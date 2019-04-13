@@ -38,10 +38,10 @@
 	<other-files/>
 </action>
 <action>
-	<icon>sublime-text</icon>
-	<name>Open in Sublime Text</name>
-	<unique-id>1541347799132119-1</unique-id>
-	<command>subl %f</command>
+	<icon>visual-studio-code</icon>
+	<name>Open in VSCode</name>
+	<unique-id>1554219713688782-1</unique-id>
+	<command>code %f</command>
 	<description></description>
 	<patterns>*</patterns>
 	<directories/>

@@ -89,7 +89,7 @@ entry {
 
 prompt {
   background-color: @background;
-  enabled: false;
+  enabled: true;
   padding: 8px;
   text-color: @foreground;
   width: 100%;

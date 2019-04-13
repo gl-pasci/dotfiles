@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# prompt the wifi ap list with rofi
+SSID=$(nmcli -t device wifi list | tail -n +1 | awk -F':' '{print $7" "$2}' | dmenu -i -p "Available networks" -theme thinkpad-prompt | cut -d " " -f 1 --complement)
+if [[ -z "$SSID" ]]; then
+  exit 0
+fi
+
+# ask for password if selected ap
+PASSWORD=$(dmenu -p "Please enter password" -theme thinkpad-prompt)
+
+# try to connect
+nmcli device wifi connect "$SSID" password "$PASSWORD" 2> notify-send

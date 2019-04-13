@@ -15,14 +15,23 @@ gaps inner 16
 gaps outer 0
 gaps bottom 16
 
+bindsym $mod+d exec rofi -show run -theme thinkpad
+
 bindsym $mod+g exec i3-msg gaps inner current set 16
 bindsym $mod+Shift+g exec i3-msg gaps inner current set 0
 
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec thunar
-bindsym $mod+b exec firefox
-bindsym $mod+d exec rofi -show run -theme thinkpad
 bindsym $mod+p exec i3-sensible-terminal -e 'python -i'
+
+bindsym $mod+Shift+Return exec thunar
+
+bindsym $mod+b exec firefox
+bindsym $mod+Ctrl+b exec firefox -private-window
+
+bindsym $mod+Shift+b exec google-chrome-stable
+bindsym $mod+Shift+Ctrl+b exec google-chrome-stable --incognito
+
+bindsym $mod+z exec zim
 
 bindsym $mod+Shift+q kill
 
@@ -80,8 +89,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-
-bindsym $mod+Shift+e exec i3-msg exit
 
 set $resize RESIZE
 
