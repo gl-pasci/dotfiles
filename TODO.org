@@ -1,0 +1,4 @@
+#+TITLE: .dotfiles
+
+* TODO rofi usb mount/unmount dialog
+* TODO conky and bitmap fonts
