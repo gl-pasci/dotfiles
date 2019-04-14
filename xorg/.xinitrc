@@ -13,7 +13,10 @@ setxkbmap it
 xbindkeys
 xmodmap ~/.Xmodmap
 
+redshift &
+
 compton --config ~/.config/compton.conf -b
+
 ~/.fehbg &
 
 exec i3
