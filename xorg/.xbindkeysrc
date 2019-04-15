@@ -34,6 +34,9 @@ XF86Display
 "toggle-trackpad"
 XF86ScreenSaver
 
+"play"
+XF86AudioPlay
+
 "wifi-select"
 Shift + XF86Launch1
 

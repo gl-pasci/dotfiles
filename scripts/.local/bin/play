@@ -1,0 +1,13 @@
+#!/bin/sh
+
+[[ `pgrep -f mpv` ]] && killall mpv
+
+[[ ! -f ~/.play_history ]] && touch ~/.play_history
+
+QUERY=$(cat ~/.play_history | dmenu -i -theme thinkpad)
+[[ -z "$QUERY" ]] && exit 0
+
+sed -i "/$QUERY/d" ~/.play_history
+echo $QUERY >> ~/.play_history
+
+mpv --no-video --ytdl-format=worstaudio ytdl://ytsearch:"$QUERY"

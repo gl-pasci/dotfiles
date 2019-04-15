@@ -12,9 +12,9 @@ alias venv='python -m venv'
 alias devvm='cd ~/Development/dev-vm && vagrant up && vagrant ssh'
 alias space='du -h --block-size=M --max-depth=1 | sort -n'
 
-function play() {
-    mpv --no-video --ytdl-format=worstaudio ytdl://ytsearch:"$@"
-}
+# function play() {
+#     mpv --no-video --ytdl-format=worstaudio ytdl://ytsearch:"$@"
+# }
 
 function take() {
     mkdir $1
