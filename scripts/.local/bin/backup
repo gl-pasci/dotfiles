@@ -6,7 +6,7 @@ DST="/run/media/me/Backup/t430"
 
 notify-send "Backing up..." -u low
 
-sudo rsync $OPT --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/swapfile","/home/*/.thumbnails/*","/home/*/.cache/mozilla/*","/home/*/.local/share/Trash/*","/home/*/.gvfs"} $SRC $DST > /dev/null 2> ${HOME}/.backup.log
+sudo rsync $OPT --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/swapfile","/home/*/.thumbnails/*","/home/*/.cache/mozilla/*","/home/*/.local/share/Trash/*","/home/*/.gvfs"} $SRC $DST 2> ${HOME}/.backup.log
 
 if [ ! $? -eq 0 ]; then
     notify-send "Backup has failed. See ~/.backup.log" -u critical
