@@ -1,0 +1,20 @@
+#!/bin/sh
+
+CHOICES="Create new\nToday\nYesterday\nTags"
+CHOICE=$(echo -e "$CHOICES" | dmenu -i -theme thinkpad)
+
+case "$CHOICE" in
+"Create new")
+  i3-sensible-terminal -e 'jrnl'
+  ;;
+"Today")
+  i3-sensible-terminal -e 'jrnl -on today --edit'
+  ;;
+"Yesterday")
+  i3-sensible-terminal -e 'jrnl -on yesterday --edit'
+  ;;
+"Tags")
+  TAG=$(jrnl --tags | cut -d: -f1 | dmenu -i -theme thinkpad | xargs)
+  [[ -n "$TAG" ]] && i3-sensible-terminal -e "jrnl $TAG --edit"
+  ;;
+esac

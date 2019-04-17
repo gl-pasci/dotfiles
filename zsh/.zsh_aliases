@@ -1,15 +1,16 @@
 alias activate='source bin/activate'
+alias devvm='cd ~/Development/dev-vm && vagrant up && vagrant ssh'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -ah'
 alias ll='ls -alh'
 alias l.='ls -dh .*'
 alias mkdir='mkdir -p'
+alias nano='nano -$ -m'
 alias restow='stow -R'
 alias service='sudo systemctl'
 alias unstow='stow -D'
 alias venv='python -m venv'
-alias devvm='cd ~/Development/dev-vm && vagrant up && vagrant ssh'
 alias space='du -h --block-size=M --max-depth=1 | sort -n'
 
 # function play() {

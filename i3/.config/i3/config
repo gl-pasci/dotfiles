@@ -23,6 +23,8 @@ bindsym $mod+Shift+g exec i3-msg gaps inner current set 0
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+p exec i3-sensible-terminal -e 'python -i'
 
+bindsym $mod+j exec --no-startup-id jrnl-menu
+
 bindsym $mod+Shift+Return exec thunar
 
 bindsym $mod+b exec firefox
