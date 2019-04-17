@@ -3,18 +3,22 @@
 CHOICES="Create new\nToday\nYesterday\nTags"
 CHOICE=$(echo -e "$CHOICES" | dmenu -i -theme thinkpad)
 
+_termite () {
+  termite -c ~/.config/termite/light.config -e "$1"
+}
+
 case "$CHOICE" in
 "Create new")
-  i3-sensible-terminal -e 'jrnl'
+  _termite 'jrnl'
   ;;
 "Today")
-  i3-sensible-terminal -e 'jrnl -on today --edit'
+  _termite 'jrnl -on today --edit'
   ;;
 "Yesterday")
-  i3-sensible-terminal -e 'jrnl -on yesterday --edit'
+  _termite 'jrnl -on yesterday --edit'
   ;;
 "Tags")
   TAG=$(jrnl --tags | cut -d: -f1 | dmenu -i -theme thinkpad | xargs)
-  [[ -n "$TAG" ]] && i3-sensible-terminal -e "jrnl $TAG --edit"
+  [[ -n "$TAG" ]] && _termite "jrnl $TAG --edit"
   ;;
 esac
