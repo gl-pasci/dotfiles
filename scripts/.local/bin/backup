@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-OPT="-aAHSX --delete --info=progress2"
+OPT="--acls --archive --delete --hard-links --human-readable --info=progress2 --no-inc-recursive --sparse --xattrs"
 SRC="/"
 DST="/run/media/me/Backup/t430"
 
