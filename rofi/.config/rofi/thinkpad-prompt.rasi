@@ -1,12 +1,9 @@
-/* global settings and color variables */
 * {
   foreground:                 #cccccc;
   foreground-lighter:         #eaefdd;
   foreground-darker:          #616161;
   background:                 #1d1e19;
   background-lighter:         #282923;
-
-  //highlight:                  bold #EE253D;  //thinkpad
   highlight:                  bold #82B1FF;
 }
 
@@ -20,15 +17,13 @@ window {
 
 mainbox {
   background-color: @background;
-  children: [inputbar, message, sidebar, listview];
+  children: [inputbar, message, listview];
   spacing: 0px;
 }
 
 message {
   padding: 6px 10px;
 }
-
-textbox {}
 
 listview {
   background-color: @background;
@@ -46,34 +41,10 @@ element {
   padding: 8px 16px;
 }
 
-element normal.normal {}
-
-element normal.urgent {}
-
-element normal.active {}
-
 element selected.normal {
   background-color: @background-lighter;
   text-color: @foreground-lighter;
 }
-
-element selected.urgent {}
-
-element selected.active {}
-
-element alternate.normal {}
-
-element alternate.urgent {}
-
-element alternate.active {}
-
-scrollbar {}
-
-sidebar {}
-
-button {}
-
-button selected {}
 
 inputbar {
   background-color: @background;
