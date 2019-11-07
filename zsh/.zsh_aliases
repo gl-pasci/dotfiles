@@ -1,4 +1,5 @@
 alias activate='source bin/activate'
+alias dc='docker-compose'
 alias devvm='cd ~/Development/dev-vm && vagrant up && vagrant ssh'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
