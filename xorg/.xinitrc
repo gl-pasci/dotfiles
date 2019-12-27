@@ -15,7 +15,7 @@ xmodmap ~/.Xmodmap
 
 redshift &
 
-compton --config ~/.config/compton.conf -b
+picom --config ~/.config/picom.conf -b
 
 ~/.fehbg &
 
